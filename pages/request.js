@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/client';
+import styles from '../styles/Home.module.css';
 
 export default function Secret() {
   const [session, loading] = useSession();
@@ -20,22 +21,32 @@ export default function Secret() {
   if (typeof window !== 'undefined' && loading) return null;
 
   if (!session) {
-    return(
+    return (
       <main>
         <div>
-          <h1>
-            You aren't signed in, please sign in
-          </h1>
+          <h1>You are not logged in</h1>
         </div>
       </main>
-    )
+    );
   }
-  return(
+  return (
     <main>
-      <div>
-        <h1>Protected Page</h1>
-        <p>content</p>
+      <div className={styles.container}>
+        <h1>Meal Request Form</h1>
+        <form className={styles.form}>
+          <select>
+            <option>food</option>
+            <option>beer</option>
+            <option>pizza</option>
+          </select>
+          <select>
+            <option>food</option>
+            <option>beer</option>
+            <option>pizza</option>
+          </select>
+
+        </form>
       </div>
     </main>
-  )
+  );
 }

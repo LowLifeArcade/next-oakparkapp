@@ -36,17 +36,16 @@ export default function Home() {
           <>
             <h1>Oak Park Food Services</h1>
 
-            <button onClick={signIn} className={styles.button}>
-              Sign In
+            <button onClick={()=>signIn('github')} className={styles.button}>
+              Git Sign In
             </button>
           </>
         )}
         {session && (
           <>
-            Signed in as {session.user.email} <br />
-            <div>You can now access secret pages</div>
+            <div>Place Request</div>
             <button>
-              <Link href="/request">To the Secret</Link>
+              <Link href="/request">Add Meal</Link>
             </button>
           </>
         )}
